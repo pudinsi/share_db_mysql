@@ -39,8 +39,8 @@ CREATE TABLE `obat` (
 --
 
 INSERT INTO `obat` (`id_obat`, `obat_kode`, `obat_nama`, `obat_stok`) VALUES
-(3, 'O-1', 'Paramex', 15),
-(4, 'O-2', 'oSKADON', 0);
+(1, 'O-1', 'Paramex', 15),
+(2, 'O-2', 'oSKADON', 0);
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE `obatkeluar` (
 --
 
 INSERT INTO `obatkeluar` (`id_ok`, `ok_obatkode`, `ok_tanggal`, `ok_jumlah`) VALUES
-(4, 'O-1', '2023-04-11', 5);
+(1, 'O-1', '2023-04-11', 5);
 
 --
 -- Trigger `obatkeluar`
@@ -246,19 +246,19 @@ ALTER TABLE `obatmasuk`
 -- AUTO_INCREMENT untuk tabel `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT untuk tabel `obatkeluar`
 --
 ALTER TABLE `obatkeluar`
-  MODIFY `id_ok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_ok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT untuk tabel `obatmasuk`
 --
 ALTER TABLE `obatmasuk`
-  MODIFY `id_om` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_om` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
