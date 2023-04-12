@@ -190,7 +190,25 @@ FROM obat tb1
 LEFT JOIN v_obatmasuk tb2 ON tb1.obat_kode = tb2.om_obatkode
 LEFT JOIN v_obatkeluar tb3 ON tb1.obat_kode = tb3.ok_obatkode;
 
+--
+-- VIEW JOIN
+--
 
+CREATE VIEW v_j_obatmasuk
+AS
+SELECT 
+tb1.om_obatkode, tb1.om_tanggal, tb1.om_jumlah,
+tb2.obat_nama
+FROM obatmasuk tb1
+LEFT JOIN obat tb2 ON tb1.om_obatkode = tb2.obat_kode;
+
+CREATE VIEW v_j_obatkeluar
+AS
+SELECT 
+tb1.ok_obatkode, tb1.ok_tanggal, tb1.ok_jumlah,
+tb2.obat_nama
+FROM obatkeluar tb1
+LEFT JOIN obat tb2 ON tb1.ok_obatkode = tb2.obat_kode;
 
 --
 -- ============================= PUDIN SAEPUDIN CIAMIS https://t.me/pudin_ira ======================================
