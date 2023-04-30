@@ -377,5 +377,48 @@ INSERT INTO `desa`(`desa_idkecamatan`, `desa_nama`, `desa_tgl_input`, `desa_tgl_
 ('27','Tambaksari', '2023-04-30 09:53:25', current_timestamp());
 
 --
+-- VIEW
+--
+CREATE VIEW v_all_alamat_id
+AS
+SELECT 
+tb1.id_desa, tb1.desa_nama, tb1.desa_idkecamatan,
+tb2.kecamatan_nama, tb2.id_kecamatan, tb2.kecamatan_idkabupaten,
+tb3.kabupaten_nama, tb3.id_kabupaten
+FROM desa tb1
+LEFT JOIN kecamatan tb2 ON tb1.desa_idkecamatan = tb2.id_kecamatan
+LEFT JOIN kabupaten tb3 ON tb2.kecamatan_idkabupaten = tb3.id_kabupaten;
+
+CREATE VIEW v_all_alamat
+AS
+SELECT 
+tb1.desa_nama as desa,
+tb2.kecamatan_nama as kecamatan,
+tb3.kabupaten_nama as kabupaten
+FROM desa tb1
+LEFT JOIN kecamatan tb2 ON tb1.desa_idkecamatan = tb2.id_kecamatan
+LEFT JOIN kabupaten tb3 ON tb2.kecamatan_idkabupaten = tb3.id_kabupaten;
+
+CREATE VIEW v_jml_desa_perkecamatan
+AS
+SELECT
+kecamatan_nama as kecamatan, COUNT(id_kecamatan) as jml_desa FROM `v_all_alamat_id`
+GROUP BY id_kecamatan;
+
+CREATE VIEW v_kec_kab_id
+AS
+SELECT 
+tb1.kecamatan_nama, tb1.id_kecamatan,
+tb2.kabupaten_nama, tb2.id_kabupaten
+FROM kecamatan tb1
+LEFT JOIN kabupaten tb2 ON tb1.kecamatan_idkabupaten = tb2.id_kabupaten;
+
+CREATE VIEW v_jml_kecamatan_perkabupaten
+AS
+SELECT
+kabupaten_nama as kabupaten, COUNT(id_kabupaten) as jml_kecamatan FROM `v_kec_kab_id`
+GROUP BY id_kabupaten;
+
+--
 -- DATABASE MYSQL
 --
