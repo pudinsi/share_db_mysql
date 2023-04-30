@@ -5,7 +5,7 @@
 -- https://instagram.com/pudin.ira
 --
 --
--- ALAMAT
+-- ALAMAT (DATA SEKABUPATEN CIAMIS)
 --
 CREATE TABLE IF NOT EXISTS `kabupaten` (
   `id_kabupaten` int(11) unsigned NOT NULL AUTO_INCREMENT,
