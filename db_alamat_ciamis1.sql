@@ -382,9 +382,9 @@ INSERT INTO `desa`(`desa_idkecamatan`, `desa_nama`, `desa_tgl_input`, `desa_tgl_
 CREATE VIEW v_all_alamat_id
 AS
 SELECT 
-tb1.id_desa, tb1.desa_nama, tb1.desa_idkecamatan,
-tb2.kecamatan_nama, tb2.id_kecamatan, tb2.kecamatan_idkabupaten,
-tb3.kabupaten_nama, tb3.id_kabupaten
+tb1.id_desa, tb1.desa_nama,
+tb2.id_kecamatan, tb2.kecamatan_nama,
+tb3.id_kabupaten, tb3.kabupaten_nama
 FROM desa tb1
 LEFT JOIN kecamatan tb2 ON tb1.desa_idkecamatan = tb2.id_kecamatan
 LEFT JOIN kabupaten tb3 ON tb2.kecamatan_idkabupaten = tb3.id_kabupaten;
